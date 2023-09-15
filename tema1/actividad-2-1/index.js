@@ -1,31 +1,78 @@
-function calcularOperaciones(a, b) {
-    const sumaResultado = suma(a, b);
-    const restaResultado = resta(a, b);
-    const multiplicacionResultado = multiplicacion(a, b);
-    const divisionResultado = division(a, b);
+var ejemploCargado = false; // Variable para rastrear si el ejemplo se ha cargado
 
-    // "literales de plantilla" que es una forma de crear cadenas de texto
-    alert(`El resultado de sumar ${a} + ${b} es igual a ${sumaResultado}`);
-    alert(`El resultado de restar ${a} - ${b} es igual a ${restaResultado}`);
-    alert(`El resultado de multiplicar ${a} x ${b} es igual a ${multiplicacionResultado}`);
-    alert(`El resultado de dividir ${a} / ${b} es igual a ${divisionResultado}`);
+function cargarEjemplo() {
+    if (!ejemploCargado) {
+        var numerosEjemplo = "63, 45, 58, 56"; // Números de ejemplo
+        textarea = document.getElementById("textarea");
+        textarea.value = numerosEjemplo;
+        console.log(textarea.value);
+
+        ejemploCargado = true; // Marcamos que el ejemplo ha sido cargado
+    }
 }
 
-function suma(a, b) {
-    return a + b;
+function obtenerResultados() {
+    resultado = document.getElementById("textarea").value.split(/,/);
+    console.log(resultado);
 }
 
-function resta(a, b) {
-    return a - b;
-}
 
-function multiplicacion(a, b) {
-    return a * b;
-}
 
-function division(a, b) {
-    return a / b;
-}
 
-// Llamo a la función para realizar los cálculos
-calcularOperaciones(5, 4);
+// function suma(array) {
+
+//     let suma = 0;
+
+//     for (let valor of array) {
+//         suma += valor;
+//     }
+//     // for (let i = 0; i < array.length; i++) {
+//     //     suma += array[i];
+//     // }
+//     return suma;
+// }
+// function calcularMedia(array) {
+//     let suma = 0;
+
+
+//     for (let valor of array)
+//         suma += valor;
+//     return suma / array.length;
+
+// }
+// function obtenerMayor(array) {
+//     let mayor = array[0];
+//     for (i = 0; i <= array.length; i++) {
+//         valor = array[i];
+
+//         if (valor > mayor) {
+//             mayor = valor;
+//         }
+//     }
+//     return mayor;
+
+// }
+// function obtenerMenor(array) {
+//     let menor = array[0];
+//     for (i = 0; i <= array.length; i++) {
+//         valor = array[i];
+//         if (valor < menor) {
+//             menor = valor;
+//         }
+//     }
+//     return menor;
+// }
+
+
+// let array = [9, 3, 4, 5];
+// console.log(suma(array)
+// );
+
+// console.log(calcularMedia(array)
+// );
+
+
+// console.log(obtenerMayor(array)
+// );
+// console.log(obtenerMenor(array)
+// );
