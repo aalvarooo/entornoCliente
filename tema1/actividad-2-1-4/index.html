@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Álvaro Mateos Robledillo">
+    <title>Añadir Valor a un Array</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="formulario">
+        <p>
+            Introduce los números enteros separados por comas:
+        </p>
+        <input type="text" class="textarea" id="inputArray" placeholder="Ejemplo: 1, 2, 3">
+        <button class="cargarBoton" id="agregarEjemplo">Ejemplo1</button>
+
+        <br>
+        Valor a añadir:
+        <input type="number" id="valorAAnadir" placeholder="Número a añadir">
+        Posición del Array:
+        <select id="posicionArray">
+            <!-- Opciones se agregarán dinámicamente desde JavaScript -->
+        </select>
+        <button class="cargarBoton" id="agregarValor">Agregar Valor</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
