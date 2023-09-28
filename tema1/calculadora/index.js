@@ -6,27 +6,27 @@ let resultadoMostrado = false;
 function actualizarDisplay() {
     const displayActual = document.getElementById('current-value');
     const displayAnterior = document.getElementById('previous-value');
-    displayActual.textContent = valorActual;
+    displayActual.textContent = arrayToString(valorActual);   
     displayAnterior.textContent = valorAnterior + (operador !== '' ? ' ' + operador : '');
 }
 
-//clics en los números y operadores
-function manejarClic(valor) {
-    if (resultadoMostrado) {
-        valorActual = '';
-        resultadoMostrado = false;
+// Función para convertir un array en una cadena
+function arrayToString(arr) {
+    let result = '';
+    for (let i = 0; i < arr.length; i++) {
+        result += arr[i];
     }
-
-    if (valor === '.') {
-        if (!valorActual.includes('.')) {
-            valorActual += '.';
-        }
-    } else {
-        valorActual += valor;
-    }
-
-    actualizarDisplay();
+    return result;
 }
+
+// Resto del código...
+
+function calcularResultado() {
+    if (valorActual.length === 0) return;
+    const actual = parseFloat(arrayToString(valorActual));  // Convertimos el array a una cadena y luego a un número
+    const anterior = parseFloat(valorAnterior);
+}
+
 
 // clics en operadores
 function manejarClicOperador(valor) {
@@ -77,7 +77,6 @@ function borrarUltimo() {
     if (resultadoMostrado) {
         return;
     }
-
     valorActual = valorActual.slice(0, -1);
     actualizarDisplay();
 }
