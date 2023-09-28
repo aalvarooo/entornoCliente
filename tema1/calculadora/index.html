@@ -1,84 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Álvaro Mateos Robledillo">
+    <meta name="author" content="Tu Nombre">
     <title>Calculadora</title>
     <link rel="stylesheet" href="styles.css">
-    </head>
-
-    <body>
-        <table id="calculadora">
-            <tr>
-                <td colspan="4">
-                    <input type="text" id="valor_numero" maxlength="20" value="0" readonly="true">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="Button" id="potencia" value="exp">
-                </td>
-                <td>
-                    <input type="Button" id="Dividir" value="/">
-                </td>
-                <td>
-                    <input type="Button" id="Multiplicar" value="x">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="Button" id="7" value="7">
-                </td>
-                <td>
-                    <input type="Button" id="8" value="8">
-                </td>
-                <td>
-                    <input type="Button" id="9" value="9">
-                </td>
-                <td>
-                    <input type="Button" id="Restar" value="-">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="Button" id="4" value="4">
-                </td>
-                <td>
-                    <input type="Button" id="5" value="5">
-                </td>
-                <td>
-                    <input type="Button" id="6" value="6">
-                </td>
-                <td>
-                    <input type="Button" id="Sumar" value="+">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="Button" id="1" value="1">
-                </td>
-                <td>
-                    <input type="Button" id="2" value="2">
-                </td>
-                <td>
-                    <input type="Button" id="3" value="3">
-                </td>
-                <td>
-                    <input type="Button" id="EsIgual" value="=">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="Button" id="0" value="0">
-                </td>
-                <td>
-                    <input type="Button" id="," value=",">
-                </td>
-                <td>
-                    <input type="Button" id="C" value="C">
-                </td>
-            </tr>
-        </table>
-    </body>
-
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="display">
+                <div id="previous-value"></div>
+                <div id="current-value"></div>
+            </div>
+            <button class="col-2" onclick="borrarTodo()">C</button>
+            <button onclick="borrarUltimo()">&larr;</button>
+            <button class="number" value="divide" onclick="manejarClicOperador('/')">%</button>
+            <button class="number" onclick="manejarClic('7')">7</button>
+            <button class="number" onclick="manejarClic('8')">8</button>
+            <button class="number" onclick="manejarClic('9')">9</button>
+            <button class="operator" value="multiply" onclick="manejarClicOperador('*')">x</button>
+            <button class="number" onclick="manejarClic('4')">4</button>
+            <button class="number" onclick="manejarClic('5')">5</button>
+            <button class="number" onclick="manejarClic('6')">6</button>
+            <button class="operator" value="subtract" onclick="manejarClicOperador('-')">-</button>
+            <button class="number" onclick="manejarClic('1')">1</button>
+            <button class="number" onclick="manejarClic('2')">2</button>
+            <button class="number" onclick="manejarClic('3')">3</button>
+            <button class="operator" value="add" onclick="manejarClicOperador('+')">+</button>
+            <button class="col-2 number" onclick="manejarClic('0')">0</button>
+            <button class="number" onclick="manejarClic('.')">.</button>
+            <button class="operator" value="equals" onclick="calcularResultado()">=</button>
+        </div>
+    </div>
+</body>
 </html>
+

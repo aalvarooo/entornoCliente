@@ -1,87 +1,92 @@
-//Declaración de variables
+let valorActual = '';
+let valorAnterior = '';
+let operador = '';
+let resultadoMostrado = false;
 
-var num1 = 0;
-var num2 = 0;
-var operacion;
+function actualizarDisplay() {
+    const displayActual = document.getElementById('current-value');
+    const displayAnterior = document.getElementById('previous-value');
+    displayActual.textContent = valorActual;
+    displayAnterior.textContent = valorAnterior + (operador !== '' ? ' ' + operador : '');
+}
 
+//clics en los números y operadores
+function manejarClic(valor) {
+    if (resultadoMostrado) {
+        valorActual = '';
+        resultadoMostrado = false;
+    }
 
-function darNumero(numero) {
-    if (num1 == 0 && num1 !== '0.') {
-        num1 = numero;
+    if (valor === '.') {
+        if (!valorActual.includes('.')) {
+            valorActual += '.';
+        }
     } else {
-        num1 += numero;
+        valorActual += valor;
     }
-    refrescar();
+
+    actualizarDisplay();
 }
 
-function darComa() {
-    if (num1 == 0) {
-        num1 = '0.'
-    } else if (num1.indexOf('.') == -1) {
-        num1 += '.'
+// clics en operadores
+function manejarClicOperador(valor) {
+    if (valorActual !== '') {
+        valorAnterior = valorActual;
+        valorActual = '';
+        operador = valor;
+        actualizarDisplay();
     }
-    refrescar();
 }
 
-function darC() {
-    num1 = 0;
-    num2 = 0;
-    refrescar();
+function calcularResultado() {
+    let resultado;
+    const actual = parseFloat(valorActual);
+    const anterior = parseFloat(valorAnterior);
+
+    switch (operador) {
+        case '+':
+            resultado = anterior + actual;
+            break;
+        case '-':
+            resultado = anterior - actual;
+            break;
+        case '*': // Cambia 'x' a '*'
+            resultado = anterior * actual;
+            break;
+        case '/':
+            resultado = anterior / actual;
+            break;
+        case '%':
+            resultado = anterior / 100;
+            break;
+        default:
+            resultado = actual;
+            break;
+    }
+
+    valorActual = resultado.toString();
+    valorAnterior = '';
+    operador = '';
+    resultadoMostrado = true;
+
+    actualizarDisplay();
 }
 
-function operar(valor) {
-    if (num1 == 0) {
-        num1 = parseFloat(document.getElementById("valor:numero").value)
-
+//borra el último número
+function borrarUltimo() {
+    if (resultadoMostrado) {
+        return;
     }
-    num2 = parseFloat(num1);
-    num1 = 0;
-    opera = valor;
+
+    valorActual = valorActual.slice(0, -1);
+    actualizarDisplay();
 }
 
-function esIgual() {
-    switch 
-        case 1:
-            resultado=num1 + num2;
-        case 2:
-            resultado=num1 - num2;
-        case 3:
-            resultado=num1 / num2;
-        case 4:
-            resultado=num1 * num4;
-    }
-
-    function suma(array) {
-        let suma = 0;
-        for (let valor of array) {
-            const numero = parseInt(valor);
-            if (!isNaN(numero))
-                suma += numero;
-        }
-        return suma
-    }
-    function restar(array) {
-        let resta = 0;
-        for (let valor of array) {
-            const numero = parseInt(valor);
-            if (!isNaN(numero))
-                resta += numero;
-        }
-        return resta
-    }
-
-    function multiplicar(array) {
-        let resta = 0;
-        for (let valor of array) {
-            const numero = parseInt(valor);
-            if (!isNaN(numero))
-                resta += numero;
-        }
-        return resta
-    }
-
-    function obtenerResultados() {
-        const resultado = document.getElementById("resultado");
-
-    }
-
+//borra todo
+function borrarTodo() {
+    valorActual = '';
+    valorAnterior = '';
+    operador = '';
+    resultadoMostrado = false;
+    actualizarDisplay();
+}
