@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const OPERACIONES = {
+            SUMA: 'suma',
+            RESTA: 'resta',
+            DIVISION: 'division',
+            MULTIPLICACION: 'multiplicacion'
+        };
+
+        function realizarOperaciones(a, b, operacion) {
+            let resultado;
+            switch (operacion) {
+                case OPERACIONES.SUMA:
+                    resultado = a + b;
+                    break;
+                case OPERACIONES.RESTA:
+                    resultado = a - b;
+                    break;
+                case OPERACIONES.DIVISION:
+                    resultado = a / b;
+                    break;
+                case OPERACIONES.MULTIPLICACION:
+                    resultado = a * b;
+                    break;
+                default:
+                    resultado = 'operacion no válida'
+            }
+
+            return resultado;
+        }
+
+        function mostrarResultadoOperacion(a, b, operacion) {
+            const resultado = realizarOperaciones(a, b, operacion);
+            alert(`el resultado de ${operacion} ${a} y ${b} es:  ${resultado}`)
+        }
+
+        function resultadoOperacion(num1, num2) {
+            mostrarResultadoOperacion(num1, num2, OPERACIONES.RESTA);
+            mostrarResultadoOperacion(num1, num2, OPERACIONES.DIVISION);
+            mostrarResultadoOperacion(num1, num2, OPERACIONES.MULTIPLICACION);
+            mostrarResultadoOperacion(num1, num2, OPERACIONES.SUMA);
+        }
+
+        resultadoOperacion(5, 4);
+
+
+    </script>
+</body>
+
+</html>

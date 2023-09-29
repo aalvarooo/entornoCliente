@@ -1,4 +1,4 @@
-let valorActual = '';
+let valorActual = [];
 let valorAnterior = '';
 let operador = '';
 let resultadoMostrado = false;
@@ -6,11 +6,11 @@ let resultadoMostrado = false;
 function actualizarDisplay() {
     const displayActual = document.getElementById('current-value');
     const displayAnterior = document.getElementById('previous-value');
-    displayActual.textContent = arrayToString(valorActual);   
+    displayActual.textContent = arrayToString(valorActual);  //Convierte array a string se puede utilizar Joins
     displayAnterior.textContent = valorAnterior + (operador !== '' ? ' ' + operador : '');
 }
 
-// Función para convertir un array en una cadena
+// convierte array en una cadena
 function arrayToString(arr) {
     let result = '';
     for (let i = 0; i < arr.length; i++) {
@@ -19,30 +19,32 @@ function arrayToString(arr) {
     return result;
 }
 
-// Resto del código...
+function manejarClic(valor) {
+    if (resultadoMostrado) {
+        valorActual = [];
+        resultadoMostrado = false;
+    }
 
-function calcularResultado() {
-    if (valorActual.length === 0) return;
-    const actual = parseFloat(arrayToString(valorActual));  // Convertimos el array a una cadena y luego a un número
-    const anterior = parseFloat(valorAnterior);
+    valorActual.push(valor);
+    actualizarDisplay();
 }
 
-
-// clics en operadores
 function manejarClicOperador(valor) {
-    if (valorActual !== '') {
-        valorAnterior = valorActual;
-        valorActual = '';
+    if (valorActual.length > 0) {
+        valorAnterior = arrayToString(valorActual);  // Unimos el array para obtener el número anterior
+        valorActual = [];
         operador = valor;
         actualizarDisplay();
     }
 }
 
 function calcularResultado() {
-    let resultado;
-    const actual = parseFloat(valorActual);
+    if (valorActual.length === 0) return;
+
+    const actual = parseFloat(arrayToString(valorActual));  // Convertimos el array a una cadena y luego a un número
     const anterior = parseFloat(valorAnterior);
 
+    let resultado;
     switch (operador) {
         case '+':
             resultado = anterior + actual;
@@ -50,21 +52,18 @@ function calcularResultado() {
         case '-':
             resultado = anterior - actual;
             break;
-        case '*': // Cambia 'x' a '*'
+        case '*':
             resultado = anterior * actual;
             break;
         case '/':
             resultado = anterior / actual;
-            break;
-        case '%':
-            resultado = anterior / 100;
             break;
         default:
             resultado = actual;
             break;
     }
 
-    valorActual = resultado.toString();
+    valorActual = resultado.toString().split('');
     valorAnterior = '';
     operador = '';
     resultadoMostrado = true;
@@ -72,18 +71,17 @@ function calcularResultado() {
     actualizarDisplay();
 }
 
-//borra el último número
+// Borrar el último número
 function borrarUltimo() {
     if (resultadoMostrado) {
         return;
     }
-    valorActual = valorActual.slice(0, -1);
+    valorActual.pop();
     actualizarDisplay();
 }
 
-//borra todo
 function borrarTodo() {
-    valorActual = '';
+    valorActual = [];
     valorAnterior = '';
     operador = '';
     resultadoMostrado = false;
