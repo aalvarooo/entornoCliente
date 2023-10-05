@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impresión de Cuadrado</title>
+</head>
+
+<body>
+  <h1>Impresión de Cuadrado</h1>
+  <pre id="cuadrado"></pre>
+
+  <script>
+    function imprimirCuadrado(size) {
+      let cuadrado = '';
+      for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+          if (i === 0 || i === size - 1 || j === 0 || j === size - 1) {
+            cuadrado += '*';
+          } else {
+            cuadrado += ' ';
+          }
+        }
+        cuadrado += '\n';  // New line for the next row
+      }
+      return cuadrado;
+    }
+
+    const size = 5;  // Adjust the size of the cuadrado
+    const cuadradoElement = document.getElementById('cuadrado');
+    cuadradoElement.innerHTML = imprimirCuadrado(size);
+  </script>
+</body>
+
+</html>

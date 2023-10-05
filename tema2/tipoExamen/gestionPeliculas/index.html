@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Peliculas</title>
+    
+</head>
+
+<body>
+    <div id="peliculas"></div>
+
+    <script>
+        let pelicula1 = { 'titulo': 'Pelicula 1', 'año': 2000, 'actores': ['Orlando', 'Juan'] };
+        let pelicula2 = { 'titulo': 'Pelicula 2', 'año': 2005, 'actores': ['Maria', 'Luis'] };
+        let pelicula3 = { 'titulo': 'Pelicula 3', 'año': 2010, 'actores': ['Ana', 'Carlos'] };
+        let peliculas = [pelicula1, pelicula2, pelicula3];
+
+        function listarPeliculas() {
+            let peliculasHTML = "";
+
+            for (let i = 0; i < peliculas.length; i++) {
+                let pelicula = peliculas[i];
+                peliculasHTML += `
+                    <div>
+                        <h2>${pelicula.titulo}</h2>
+                        <p>Año: ${pelicula.año}</p>
+                        <p>Actores Principales: ${pelicula.actores.join(", ")}</p>
+                    </div>
+                `;
+            }
+
+            const divPeliculas = document.getElementById("peliculas");
+            divPeliculas.innerHTML = peliculasHTML;
+        }
+
+        window.onload = function () {
+            listarPeliculas();
+        }
+    </script>
+</body>
+
+</html>

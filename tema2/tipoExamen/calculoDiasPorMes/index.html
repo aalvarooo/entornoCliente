@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Días en un Mes</title>
+</head>
+
+<body>
+    <h1>Ingresa un Mes</h1>
+    <label for="mes">Mes:</label>
+    <input type="text" id="mes">
+    <br>
+    <button onclick="calcularDias()">Calcular Días</button>
+    <div id="resultado"></div>
+    <script>
+        function calcularDias() {
+            // Obtener el valor del mes ingresado por el usuario
+            let numeroDeDiasMes = parseInt(document.getElementById("mes").value);
+
+            // Verificar si el número de mes es válido
+            if (numeroDeDiasMes >= 1 && numeroDeDiasMes <= 12) {
+                // Obtener el año actual
+                let añoActual = new Date().getFullYear();
+
+                // Obtener el nombre del mes
+                let nombreMes = new Date(añoActual, numeroDeDiasMes, 0).toLocaleDateString('es-ES', { month: 'long' });
+
+                // Obtener el número de días del mes
+                let diasTotalesMes = new Date(añoActual, numeroDeDiasMes, 0).getDate();
+
+                // Crear el texto del resultado
+                let textoResultado = `Nombre del mes ${nombreMes} - Número de días: ${diasTotalesMes}`;
+
+                // Actualizar el contenido del elemento con id "resultado"
+                let resultadoDiv = document.getElementById("resultado");
+                resultadoDiv.textContent = textoResultado;
+            } else {
+                alert("Introduce un número válido entre 1 y 12");
+            }
+        }
+    </script>
+</body>
+
+</html>
