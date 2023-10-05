@@ -1,64 +1,59 @@
-let libros = [];
-function Biblioteca(titulo, autor, año, genero) {
-    this.titulo = titulo;
-    this.autor = autor;
-    this.año = año;
-    this.genero = genero;
-}
-
-let libro1 = new Biblioteca("Trajano", "Santiago Posteguillo", 2010, "Nóvela");
-let libro2 = new Biblioteca("Africanus", "Santiago Posteguillo", 2008, "Nóvela");
-let libro3 = new Biblioteca("Yo Julia", "Santiago Posteguillo", 2021, "Nóvela");
-
-
-libros.push(libro1, libro2, libro3)
-
-
-
-console.log(Biblioteca);
+let biblioteca = [];
+let libro1 = {
+    Titulo: "Africanus",
+    Autor: "Santiago Posteguillo",
+    Año: 2012,
+    Genero: "Novela"
+};
+let libro2 = {
+    Titulo: "Hijos del emperador",
+    Autor: "Santiago Posteguillo",
+    Año: 2019,
+    Genero: "Novela"
+};
+let libro3 = {
+    Titulo: "Yo Julia",
+    Autor: "Santiago Posteguillo",
+    Año: 2020,
+    Genero: "Novela"
+};
+biblioteca.push(libro1, libro2, libro3);
 function ingresarDatos() {
-    let titulo = prompt("Introduce el nombre del libro");
-    let autor = prompt("Introduce el nombre del autor");
-    let año = parseInt(prompt("Introduce la fecha del libro"));
-    let genero = prompt("Introduce el género de la novela");
-
-    let nuevoLibro = new Biblioteca(titulo, autor, año, genero);
-    libros.push(nuevoLibro);
-
-    mostrarLibros();
+    let libro = {};
+    libro.Titulo = prompt("Escribe el nombre del título");
+    libro.Autor = prompt("Escribe el nombre del autor");
+    libro.Año = parseInt(prompt("Escribe el año en que se escribió"));
+    libro.Genero = prompt("Dinos de qué género es el libro");
+    return libro;
 }
-
+function mostrarInfo(libro) {
+    console.log(`Título: ${libro.Titulo}, Autor: ${libro.Autor}, Año:
+${libro.Año}, Género: ${libro.Genero}`);
+}
 function agregarLibro() {
-
-    ingresarDatos();
-
-
-
+    let nuevoLibro = ingresarDatos();
+    biblioteca.push(nuevoLibro);
+    mostrarInfo(nuevoLibro);
+    mostrarBiblioteca();
 }
+function mostrarBiblioteca() {
 
-
-function mostrarLibros() {
     let divBiblioteca = document.getElementById("biblioteca");
-
-    // Limpiar el contenido previo
     divBiblioteca.innerHTML = "";
-
-    // Iterar sobre los libros y mostrar la información en el div
-    for (let i = 0; i < libros.length; i++) {
-        let libro = libros[i];
-        let libroInfo = document.createElement("p");
-        libroInfo.textContent = `Título: ${libro.titulo}, Autor: ${libro.autor}, Año: ${libro.año}, Género: ${libro.genero}`;
-        divBiblioteca.appendChild(libroInfo);
+    for (let i = 0; i < biblioteca.length; i++) {
+        let parrafo = document.createElement("p");
+        parrafo.textContent = `Título: ${biblioteca[i].Titulo}, Autor:${biblioteca[i].Autor}, Año: ${biblioteca[i].Año}, Género:${biblioteca[i].Genero}`;
+        divBiblioteca.appendChild(parrafo);
     }
 }
-
-mostrarLibros();
 function eliminarLibro() {
-    let tituloAEliminar = prompt("dame el título");
-    for (let i = 0; i < libros.length; i++) {
-        if (libros[i] == tituloAEliminar) {
-            libros.pop(libros[i]);
-            console.log(libros);
+    let libroEliminar = prompt("Ingresa el nombre del título a eliminar");
+    for (let i = 0; i < biblioteca.length; i++) {
+        if (biblioteca[i].Titulo === libroEliminar) {
+            biblioteca.splice(i, 1);
+            mostrarBiblioteca();
+            return;
         }
     }
+    alert("No coinncide con ningún libro");
 }

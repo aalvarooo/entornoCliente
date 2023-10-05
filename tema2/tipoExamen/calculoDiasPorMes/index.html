@@ -16,24 +16,17 @@
     <div id="resultado"></div>
     <script>
         function calcularDias() {
-            // Obtener el valor del mes ingresado por el usuario
             let numeroDeDiasMes = parseInt(document.getElementById("mes").value);
 
-            // Verificar si el número de mes es válido
             if (numeroDeDiasMes >= 1 && numeroDeDiasMes <= 12) {
-                // Obtener el año actual
+                let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+                let nombreMes = meses[numeroDeDiasMes - 1]; 
                 let añoActual = new Date().getFullYear();
 
-                // Obtener el nombre del mes
-                let nombreMes = new Date(añoActual, numeroDeDiasMes, 0).toLocaleDateString('es-ES', { month: 'long' });
-
-                // Obtener el número de días del mes
                 let diasTotalesMes = new Date(añoActual, numeroDeDiasMes, 0).getDate();
 
-                // Crear el texto del resultado
-                let textoResultado = `Nombre del mes ${nombreMes} - Número de días: ${diasTotalesMes}`;
+                let textoResultado = `Nombre del mes: ${nombreMes} - Número de días: ${diasTotalesMes}`;
 
-                // Actualizar el contenido del elemento con id "resultado"
                 let resultadoDiv = document.getElementById("resultado");
                 resultadoDiv.textContent = textoResultado;
             } else {

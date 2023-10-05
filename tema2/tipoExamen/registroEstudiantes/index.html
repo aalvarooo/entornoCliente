@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Estudiantes</title>
+</head>
+
+<body>
+    <h1>Registro de Estudiantes</h1>
+    <script>
+        function crearEstudiante(nombre, edad, materias) {
+            const estudiante = {
+                nombre: nombre,
+                edad: edad,
+                materias: materias || [],
+
+                agregarMateria(materia) {
+                    this.materias.push(materia);
+                },
+
+                mostrarInfo() {
+                    console.log(`Nombre: ${this.nombre}`);
+                    console.log(`Edad: ${this.edad}`);
+                    console.log("Materias:");
+                    for (const materia of this.materias) {
+                        console.log(`- ${materia}`);
+                    }
+                },
+            };
+
+            return estudiante;
+        }
+
+        const estudiante1 = crearEstudiante("Juan", 20, ["Matemáticas", "Física"]);
+        const estudiante2 = crearEstudiante("Ana", 22, ["Historia", "Literatura"]);
+
+        estudiante1.agregarMateria("Programación");
+        estudiante2.agregarMateria("Química");
+
+        console.log("Información de Estudiante 1:");
+        estudiante1.mostrarInfo();
+
+        console.log("\nInformación de Estudiante 2:");
+        estudiante2.mostrarInfo();
+    </script>
+</body>
+
+</html>
