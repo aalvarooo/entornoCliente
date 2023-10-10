@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Value de un campo de entrada</h1>
+    <input type="text" placeholder="Texto de entrada" id="miInput">
+    <p id="miParrafo">Este es un parrafo de ejemplo</p>
+    <button onclick="cambiarInputValue()">Cambiar value</button>
+    <button onclick="cambiarInputInner()">Cambiar InnerHTML</button>
+    <button onclick="cambiarInputTextContent()">¡El contenido ha sido cambiado con
+        textContent!</button>
+
+    <script>
+        let input = document.getElementById('miInput');
+        let parrafo = document.getElementById('miParrafo');
+
+        function cambiarInputValue() {
+            input.value = "nuevo valor del campo";
+        }
+
+        function cambiarInputInner() {
+            let textoInner = "¡contenido ha sido cambiado con innerHTML!"
+            parrafo.innerHTML =  textoInner;
+
+        }
+
+        function cambiarInputTextContent() {
+            let textoContent = "¡contenido ha sido cambiado con textContent!"
+
+            parrafo.textContent = textoContent;
+
+        }
+    </script>
+
+</body>
+
+</html>

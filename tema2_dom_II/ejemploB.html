@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio B</title>
+</head>
+
+<body>
+    <div id="miDiv">
+        <p>Este es un párrafo de ejemplo.</p>
+    </div>
+
+    <button onclick="cambiarConInnerHTML()">Cambiar con innerHTML</button>
+    <button onclick="cambiarConTextContent()">Cambiar con textContent</button>
+
+    <script>
+        function cambiarConInnerHTML() {
+            const miDiv = document.getElementById('miDiv');
+            miDiv.innerHTML = '<p>Contenido cambiado con <strong>innerHTML</strong>.</p>';
+        }
+
+        function cambiarConTextContent() {
+            const miDiv = document.getElementById('miDiv');
+            miDiv.textContent = 'Contenido cambiado con textContent.';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Imagen</title>
+</head>
+
+<body>
+    <h1>Cambiar Estado</h1>
+    <a href="https://www.google.com/?hl=es" id="miEnlace"><img src="imagen1.jpg" id="img" alt="Imagen 1"></a>
+    <button onclick="cambiarImagen()">Cambiar Imagen</button>
+
+    <script>
+        let contadorDeClicks = 0;
+
+        function cambiarImagen() {
+        let enlace=document.getElementById("miEnlace");
+        enlace.href="https://www.facebook.com/?locale=es_ES";
+        }
+    </script>
+</body>
+
+</html>

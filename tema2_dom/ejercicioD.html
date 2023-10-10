@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title"></h1>
+    <ul id="listaPeliculas">
+        <li class="lista_name">hola</li>
+        <li class="lista_name">hola</li>
+        <li class="lista_name">hola</li>
+        <li class="lista_name">hola</li>
+    </ul>
+    <button onclick="cambiarParrafo()">Cambiar contenido</button>
+
+    <script>
+        function hacerCambios() {
+            const lista_name = document.getElementsByClassName('lista_name');
+            for (let i = 0; i < lista_name.length; i++) {
+                lista_name[0].textContent = "¡Hola universo!";
+                lista_name[1].style.color = 'green';
+                lista_name[2].style.backgroundColor = 'black';
+                lista_name[3].style.backgroundColor = 'black';
+
+            }
+        }
+
+        function cambiarParrafo() {
+            hacerCambios();
+        }
+
+
+    </script>
+</body>
+
+</html>

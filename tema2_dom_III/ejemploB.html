@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Estilo al Pulsar Botón</title>
+    <style>
+        .resaltar {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Elemento a Resaltar</h1>
+    <p id="miParrafo">Este es un párrafo que puede ser resaltado</p>
+    <button onclick="toggleResaltado()">Alternar Resaltado</button>
+
+    <script>
+        const miParrafo = document.getElementById('miParrafo');
+        const avisoParrafo = document.getElementById('parrafoAviso');
+
+        function toggleResaltado() {
+            miParrafo.classList.toggle('resaltar');
+        }
+    </script>
+</body>
+
+</html>

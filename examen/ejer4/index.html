@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ordenar Array</h1>
+    <button onclick="sortArray()">Ordenar</button>
+    <div id="resultado"></div>
+    <script>
+        function bubble(arr) {
+            let intercambio;
+             for (let i = 0; i < arr.length; i++) {
+                intercambio = false;
+                for (let j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j + 1] < arr[j]) {
+                        let temp = arr[j - 1];
+                        arr[j + 1] = temp;
+                        arr[j] = arr[j + 1];
+                        intercambio = true;
+                        break;
+                    }
+                }
+                if (!intercambio) {
+                    break;
+                }
+                arr;
+            }
+        }
+
+        function sortArray() {
+            const numeros = [5, 2, 9, 1, 5, 6, 3, 8, 4, 7];
+            let numerosOrdenados = bubble(slice(numeros));
+            console.log(numerosOrdenados)
+            const resultadoElement = document.getElementById('resultado');
+            resultadoElement.textContent = 'Array original:' + numeros.join(',') + '\n';
+            resultadoElement.textContent += 'Array ordenado:' + numerosOrdenados;
+        }
+    </script>
+</body>
+
+</html>

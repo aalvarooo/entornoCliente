@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Imagen</title>
+</head>
+
+<body>
+    <h1>Cambiar Estado "checked" con el DOM</h1>
+    <input type="checkbox" name="" id="checked"><button onclick="cambiarImagen()">Cambiar Estado</button>
+    <p id="textoParrafo">El checkbox está desmarcado</p>
+    <script>
+        let contadorDeClicks = 0;
+
+        function cambiarImagen() {
+            let inputChecked = document.getElementById("checked");
+            inputChecked.checked = "checked";
+            if (inputChecked.checked) {
+                let textoParrafo = document.getElementById("textoParrafo");
+                textoParrafo.textContent= "El checkbox está marcado";
+            }
+        }
+    </script>
+</body>
+
+</html>

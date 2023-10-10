@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio con querySelectorAll</title>
+</head>
+
+<body>
+    <h1 id="title"></h1>
+    <div class="class">
+        <p class="item">hola</p>
+        <p class="item">hola</p>
+        <p class="item">hola</p>
+        <p class="item">hola</p>
+    </div>
+    <div class="class">
+        <p class="destacado">hola</p>
+        <p class="destacado">hola</p>
+        <p class="destacado">hola</p>
+        <p class="destacado">hola</p>
+    </div>
+    <div class="class">
+        <p class="oculto">hola</p>
+        <p class="oculto">hola</p>
+        <p class="oculto">hola</p>
+        <p class="oculto">hola</p>
+    </div>
+    <button onclick="cambiarParrafo()">Cambiar contenido</button>
+
+    <script>
+        function hacerCambios() {
+            const items = document.querySelectorAll('.item'); 
+            const destacados = document.querySelectorAll('.destacado:nth-child(-n+3)');
+            const ocultos = document.querySelectorAll('.oculto:nth-last-child(-n+2)'); 
+
+            console.log('Elementos con la clase "item":', items);
+            console.log('Primeros tres elementos con la clase "destacado":', destacados);
+            console.log('Últimos dos elementos con la clase "oculto":', ocultos);
+        }
+
+        function cambiarParrafo() {
+            hacerCambios();
+        }
+    </script>
+</body>
+
+</html>

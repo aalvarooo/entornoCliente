@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title"></h1>
+    <ul>
+        <li class="lista_name">hola</li>
+        <li class="lista_name">hola</li>
+        <li class="lista_name">hola</li>
+        <li class="lista_name">hola</li>
+    </ul>
+
+    <script>
+        function hacerCambios() {
+            const lista_name = document.getElementsByClassName('lista_name');
+
+            for (let i = 0; i < lista_name.length; i++) {
+                lista_name[i].textContent = "¡Hola universo!";
+                lista_name[i].style.color = 'red';
+                lista_name[i].style.backgroundColor = 'black';
+
+             }
+        }
+        hacerCambios();
+    </script>
+</body>
+
+</html>

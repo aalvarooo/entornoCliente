@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio con querySelectorAll</title>
+</head>
+
+<body>
+    <h1 class="main-title">Título de la página</h1>
+    <div class="class" id="div_principal">
+        <p class="item">hola</p>
+        <p>hola</p>
+        <ul>
+            <li>primero</li>
+            <li>segundo</li>
+            <li>tercer</li>
+        </ul>
+    </div>
+    <button onclick="hacerCambios()">Cambiar contenido</button>
+
+    <script>
+        function hacerCambios() {
+            const primerElementoH1 = document.querySelector('.main-title'); 
+            const contenedor = document.querySelector('#div_principal'); 
+            const parrafoDestacado = document.querySelectorAll('.item'); 
+            const segundoElementoLista = document.querySelectorAll('ul li:nth-child(2)'); 
+
+            console.log('Primer elemento h1:', primerElementoH1);
+            console.log('Contenedor con ID "div_principal":', contenedor);
+            console.log('Elementos con la clase "item":', parrafoDestacado);
+            console.log('Segundo elemento de la lista:', segundoElementoLista[0]);
+        }
+    </script>
+</body>
+
+</html>

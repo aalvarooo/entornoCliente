@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Gestion de biblioteca</h1>
+    <div id="formulario">
+        <p>
+            Introduce los números enteros separados por comas:
+        </p>
+        Nombre <input type="text" class="textarea" id="nombre">
+        <br>
+        Autor <input type="text" class="textarea" id="autor">
+        <br>
+        Género <input type="text" class="textarea" id="genero">
+        <br>
+        Año de publicación <input type="text" class="textarea" id="año">
+        <br>
+        <br>
+        <button class="cargarBoton" id="agregarValor" onclick=" agregarLibro()">Agregar Libro</button>
+        <br><br>
+        Título del libro a prestar: <input type="text" class="textarea" id="prestar">
+        <button class="cargarBoton" id="prestarLibro" onclick="prestarLibro()">Prestar por título</button>
+        <br>
+        <button class="cargarBoton" id="imrpimirLibro" onclick="imprimirLibrosDisponibles()">Imprimir libro</button>
+
+
+        <div id="biblioteca"></div>
+    </div>
+    <script>
+        let biblioteca = [];
+
+        function ingresarDatos() {
+            let libro = {};
+            libro.Titulo = document.getElementById("nombre").value;
+            libro.Autor = document.getElementById("autor").value;
+            libro.Año = document.getElementById("genero").value;
+            libro.Genero = document.getElementById("año").value;
+            console.log(libro);
+
+            return libro;
+        }
+        //         function mostrarInfo(libro) {
+        //             console.log(`Título: ${libro.Titulo}, Autor: ${libro.Autor}, Año:
+        // ${libro.Año}, Género: ${libro.Genero}`);
+        //         }
+
+
+        function agregarLibro() {
+            let nuevoLibro = ingresarDatos();
+            biblioteca.push(nuevoLibro);
+        }
+        function imprimirLibrosDisponibles() {
+            agregarLibro();
+            console.log("llego");
+            let divBiblioteca = document.getElementById("biblioteca");
+            divBiblioteca.innerHTML = "";
+            for (let i = 0; i < biblioteca.length; i++) {
+                let parrafo = document.createElement("p");
+                parrafo.textContent = `Libro: ${biblioteca[i].Titulo}, Autor:${biblioteca[i].Autor}, Género:${biblioteca[i].Genero}, Año de publicación: ${biblioteca[i].Año}`;
+                divBiblioteca.appendChild(parrafo);
+            }
+
+        }
+        function prestarLibro() {
+            let libroEliminar = document.getElementById("prestar").value;
+            for (let i = 0; i < biblioteca.length; i++) {
+                if (biblioteca[i].Titulo === libroEliminar) {
+                    biblioteca.splice(i, 1);
+                    imprimirLibrosDisponibles()
+                    return;
+                }
+            }
+            alert("No coinncide con ningún libro");
+        }
+    </script>
+</body>
+
+</html>

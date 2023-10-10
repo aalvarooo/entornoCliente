@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impresión de Cuadrado</title>
+</head>
+
+<body>
+    numero de filas: <input type="text" class="textarea" id="filas">
+    Cáracter <input type="text" class="textarea" id="caracter">
+    <button onclick="imprimirCuadrado()">Dibujar triangular</button>
+    <div id="triangulo"></div>
+
+    <script>
+        function imprimirCuadrado() {
+            console.log("llego");
+            let size = document.getElementById("filas").value;
+            let numero = document.getElementById("caracter").value;
+            let contador = 1;
+            let cuadrado = '';
+            for (let i = 0; i < size; i++) {
+                cuadrado += '\n'; 
+
+                for (let j = 0; j < contador; j++) {
+
+                    cuadrado += numero;
+                    
+                }
+                cuadrado += '\n'; 
+
+                contador++;
+
+            }
+
+
+            const cuadradoElement = document.getElementById('triangulo');
+            return cuadradoElement.innerHTML = cuadrado;
+        }
+
+
+    </script>
+</body>
+
+</html>
