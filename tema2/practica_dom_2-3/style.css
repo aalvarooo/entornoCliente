@@ -1,0 +1,47 @@
+/* Declaraciones de reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%; /* 62.5% del tamaño de fuente raíz (equivalente a 10px) */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+#contenedor {
+    max-width: 70rem; /* 600px (60 * 10px) */
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 2rem; /* 20px (2 * 10px) */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem; /* 5px (0.5 * 10px) */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* 10px (1 * 10px) */
+}
+
+h1 {
+    font-size: 2.4rem; /* 24px (2.4 * 10px) */
+    margin-bottom: 2rem; /* 20px (2 * 10px) */
+    text-align: left;
+}
+
+/* Tu código CSS existente aquí */
+
+#contenedor_tareas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cuatro columnas */
+    grid-gap: 2rem; /* 20px (2 * 10px) */
+    justify-items: center;
+}
+#contenedor_botones {
+   display: flex;
+   flex-wrap: row;
+   gap: 2rem;
+}
+
+ 
