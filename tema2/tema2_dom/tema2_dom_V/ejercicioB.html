@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>holaamigo</p>
+        <span>que tal</span>
+        <span>bien</span>
+        <p>estoygracias</p>
+    </div>
+    <button onclick="resaltarParrafos()">Resaltar Primer y Último Párrafo</button>
+
+    <script>
+
+        function resaltarParrafos() {
+            const padre = document.getElementById('contenedor');
+            const primerParrafo = padre.firstElementChild;
+            const segundoParrafo = padre.lastElementChild;
+
+            console.log(primerParrafo);
+            console.log(segundoParrafo);
+            primerParrafo.style.backgroundColor = '#FF00FF';
+            segundoParrafo.style.backgroundColor = '#FF00FF';
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>hola<span>que tal</span>amigo</p>
+        <p>estoy<span>bien</span>gracias</p>
+        <button onclick="obtenerNodosHijosChildNodes()">Modificar Contenedor childNodes</button>
+        <br><br><br>
+        <button onclick="obtenerNodosHijosChildren()">Modificar Contenedor children</button>
+
+    </div>
+    <script>
+        const padre = document.getElementById('contenedor');
+
+        function obtenerNodosHijosChildNodes() {
+            const nodosHijosChildNodes = padre.childNodes;
+
+            for (i = 0; i < nodosHijosChildNodes.length; i++) {
+                let parrafoPrimeroChildNodes = nodosHijosChildNodes[1];
+                let parrafoSegundoChildNodes = nodosHijosChildNodes[3];
+                parrafoPrimeroChildNodes.textContent = "actualizado";
+                parrafoSegundoChildNodes.textContent = "actualizado";
+            }
+
+        }
+        function obtenerNodosHijosChildren() {
+            const nodosHijosChildren = padre.children;
+
+            for (i = 0; i < nodosHijosChildren.length; i++) {
+                let parrafoPrimeroChildren = nodosHijosChildren[0];
+                let parrafoSegundoChildren = nodosHijosChildren[1];
+                parrafoPrimeroChildren.textContent = "actualizado";
+                parrafoSegundoChildren.textContent = "actualizado";
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

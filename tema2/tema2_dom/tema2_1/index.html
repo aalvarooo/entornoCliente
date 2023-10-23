@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica DOM Avanzada</title>
+    <style>
+        .resaltar {
+            background: red;
+        }
+        .ocultar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Práctica DOM Avanzada</h1>
+
+    <div id="seccion1">
+        <h2>Sección 1</h2>
+        <button onclick="toggleElements('primerElemento', 'resaltar')">Resaltar Elementos</button>
+        <button onclick="toggleElements('primerElemento', 'ocultar')">Ocultar Elementos</button>
+        <button onclick="showHiddenElements('primerElemento')">Mostrar Elementos</button>
+
+        <ul id="primerElemento">
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+        </ul>
+    </div>
+
+    <div id="seccion2">
+        <h2>Sección 2</h2>
+        <button onclick="toggleElements('segundoElemento', 'resaltar')">Resaltar Elementos</button>
+        <button onclick="toggleElements('segundoElemento', 'ocultar')">Ocultar Elementos</button>
+        <button onclick="showHiddenElements('segundoElemento')">Mostrar Elementos</button>
+
+        <ul id="segundoElemento">
+            <li>Elemento A</li>
+            <li>Elemento B</li>
+            <li>Elemento C</li>
+        </ul>
+    </div>
+
+    <div id="seccion3">
+        <h2>Sección 3</h2>
+        <button onclick="toggleElements('tercerElemento', 'resaltar')">Resaltar Elementos</button>
+        <button onclick="toggleElements('tercerElemento', 'ocultar')">Ocultar Elementos</button>
+        <button onclick="showHiddenElements('tercerElemento')">Mostrar Elementos</button>
+
+        <ul id="tercerElemento">
+            <li>Elemento X</li>
+            <li>Elemento Y</li>
+            <li>Elemento Z</li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleElements(elementId, styleClass) {
+            const elements = document.getElementById(elementId).getElementsByTagName('li');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].classList.toggle(styleClass);
+            }
+        }
+
+        function showHiddenElements(elementId) {
+            const elements = document.getElementById(elementId).getElementsByTagName('li');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].classList.remove('ocultar');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

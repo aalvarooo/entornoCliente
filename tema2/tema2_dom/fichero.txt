@@ -1,0 +1,236 @@
+tema 2_ dom 4
+
+
+ejercicio 1
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="miDiv">
+        <button onclick="cambiarDiv()">Cambiar id del div</button>
+    </div>
+
+    <script>
+        let miDiv = document.getElementById('miDiv');
+        console.log(miDiv);
+
+        function cambiarDiv() {
+            miDiv.setAttribute("id", "nuevoId");
+            console.log(miDiv);
+        }
+    </script>
+</body>
+
+</html>
+
+ejercicio 2
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #emailError {
+            background: red;
+        }
+
+        .errorParrafo {
+            color: red;
+        }
+    </style>
+</head>
+
+<h1>Formulario de Registro</h1>
+Nombre: <input type="text" name="" id="NombreInput">
+<br>
+<br>
+
+Correo Electrónico: <input type="email" name="" id="correoInput">
+<br>
+<br>
+<br>
+<br>
+<p class="errorParrafo" id="error"></p>
+
+<button onclick="verificacionCorreo()">Registrarse</button>
+
+<br><br>
+<script>
+    let inputCorreo = document.getElementById('correoInput');
+    var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    let errorParrafo = document.getElementById("error");
+    console.log(errorParrafo);
+    function verificacionCorreo() {
+        if (regex.test(inputCorreo.value)) {
+            return;
+        }
+        console.log("llegas");
+        inputCorreo.setAttribute("id", "emailError");
+        errorParrafo.textContent = "Dirección de correo eléctronico no válida";
+    }
+</script>
+</body>
+
+</html>
+ejercicio 3
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="contenedor">
+        <button onclick="agregarParrafo()">Agregar parrafo</button>
+    </div>
+    <script>
+        let contenedor = document.getElementById("contenedor");
+        function agregarParrafo() {
+            let nuevoParrafo = document.createElement('p');
+            nuevoParrafo.textContent = "Este es un nuevo parrafo";
+            contenedor.appendChild(nuevoParrafo);
+        }
+    </script>
+</body>
+
+</html>
+ejercicio 4
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>hola</p>
+        <p>hola</p>
+        <p>hola qué tal</p>
+        <p>hola</p>
+        <p>hola</p>
+        <p>hola</p>
+        <button onclick="eliminarParrafo()">Agregar parrafo</button>
+    </div>
+    <script>
+        let contenedor = document.getElementById("contenedor");
+        function obtenerParrafo() {
+            parrafos = document.querySelectorAll("#contenedor p"); // Eliminar el nodo hijo del nodo 
+            parrafoAEliminar = parrafos[2];
+            return parrafoAEliminar;
+        }
+        function eliminarParrafo() {
+            parrafoAEliminar = obtenerParrafo();
+            contenedor.removeChild(parrafoAEliminar);
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+dom V
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>hola<span>que tal</span>amigo</p>
+        <p>estoy<span>bien</span>gracias</p>
+        <button onclick="obtenerNodosHijosChildNodes()">Modificar Contenedor childNodes</button>
+        <br><br><br>
+        <button onclick="obtenerNodosHijosChildren()">Modificar Contenedor children</button>
+
+    </div>
+    <script>
+        const padre = document.getElementById('contenedor');
+
+        function obtenerNodosHijosChildNodes() {
+            const nodosHijosChildNodes = padre.childNodes;
+
+            for (i = 0; i < nodosHijosChildNodes.length; i++) {
+                let parrafoPrimeroChildNodes = nodosHijosChildNodes[1];
+                let parrafoSegundoChildNodes = nodosHijosChildNodes[3];
+                parrafoPrimeroChildNodes.textContent = "actualizado";
+                parrafoSegundoChildNodes.textContent = "actualizado";
+            }
+
+        }
+        function obtenerNodosHijosChildren() {
+            const nodosHijosChildren = padre.children;
+
+            for (i = 0; i < nodosHijosChildren.length; i++) {
+                let parrafoPrimeroChildren = nodosHijosChildren[0];
+                let parrafoSegundoChildren = nodosHijosChildren[1];
+                parrafoPrimeroChildren.textContent = "actualizado";
+                parrafoSegundoChildren.textContent = "actualizado";
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>
+
+
+EJERCICIO 2
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>holaamigo</p>
+        <span>que tal</span>
+        <span>bien</span>
+        <p>estoygracias</p>
+    </div>
+    <button onclick="resaltarParrafos()">Resaltar Primer y Último Párrafo</button>
+
+    <script>
+
+        function resaltarParrafos() {
+            const padre = document.getElementById('contenedor');
+            const primerParrafo = padre.firstElementChild;
+            const segundoParrafo = padre.lastElementChild;
+
+            console.log(primerParrafo);
+            console.log(segundoParrafo);
+            primerParrafo.style.backgroundColor = '#FF00FF';
+            segundoParrafo.style.backgroundColor = '#FF00FF';
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

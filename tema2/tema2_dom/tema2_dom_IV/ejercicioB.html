@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #emailError {
+            background: red;
+        }
+
+        .errorParrafo {
+            color: red;
+        }
+    </style>
+</head>
+
+<h1>Formulario de Registro</h1>
+Nombre: <input type="text" name="" id="NombreInput">
+<br>
+<br>
+
+Correo Electrónico: <input type="email" name="" id="correoInput">
+<br>
+<br>
+<br>
+<br>
+<p class="errorParrafo" id="error"></p>
+
+<button onclick="verificacionCorreo()">Registrarse</button>
+
+<br><br>
+<script>
+    let inputCorreo = document.getElementById('correoInput');
+    var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    let errorParrafo = document.getElementById("error");
+    console.log(errorParrafo);
+    function verificacionCorreo() {
+        if (regex.test(inputCorreo.value)) {
+            return;
+        }
+        console.log("llegas");
+        inputCorreo.setAttribute("id", "emailError");
+        errorParrafo.textContent = "Dirección de correo eléctronico no válida";
+    }
+</script>
+</body>
+
+</html>
