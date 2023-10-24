@@ -11,15 +11,18 @@
 <body>
     <div id="contenedor">
         <h1>Lista de tareas</h1>
-        <div id="contenedor_tareas">
-
-        </div>
-        <div id="contenedor_botones">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <button>Agregar tarea</button>
-            <button>Eliminar tarea</button>
+        <ul id="lista_tareas">
+            <li>Hacer la compra</li>
+            <li>Completar la tarea 1</li>
+            <li>Estudiar para el examen</li>
+        </ul>
+        <div class="lista_botones">
+            <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+            <button onclick="agregarTarea()">Agregar Tarea</button>
+            <button onclick="eliminarTarea()">Eliminar Tarea</button>
             <button>Mover tarea arriba</button>
         </div>
+            
     </div>
     <script src="script.js"></script>
 

@@ -14,44 +14,42 @@ body {
 }
 
 #contenedor {
-    max-width: 70rem; /* 600px (60 * 10px) */
-    margin: 0 auto;
+    max-width: 70rem; 
     margin-top: 2rem;
-    padding: 2rem; /* 20px (2 * 10px) */
+    padding: 2rem; 
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 0.5rem; /* 5px (0.5 * 10px) */
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* 10px (1 * 10px) */
+    border-radius: 0.5rem; 
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); 
 }
 
 h1 {
-    font-size: 2.4rem; /* 24px (2.4 * 10px) */
-    margin-bottom: 2rem; /* 20px (2 * 10px) */
+    font-size: 2.4rem; 
+    margin-bottom: 2rem; 
 }
 
-/* Tu código CSS existente aquí */
 
 #imagen_container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Cuatro columnas */
-    grid-gap: 2rem; /* 20px (2 * 10px) */
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 2rem; 
     justify-items: center;
 }
 
 #imagen_container img {
     max-width: 100%;
-    height: 20rem; /* 200px (20 * 10px) */
-    border: 0.1rem solid #ddd; /* 1px (0.1 * 10px) */
-    border-radius: 0.5rem; /* 5px (0.5 * 10px) */
+    height: 20rem; 
+    border: 0.1rem solid #ddd; 
+    border-radius: 0.5rem; 
 }
 
 #contenedor img:last-child {
     display: block;
-    grid-column: span 4; /* La última imagen ocupa las cuatro columnas */
+    grid-column: span 4;
     max-width: 100%;
-    border: 0.1rem solid #ddd; /* 1px (0.1 * 10px) */
-    border-radius: 0.5rem; /* 5px (0.5 * 10px) */
-    margin-top: 2rem; /* 20px (2 * 10px) */
-    height: 60rem; /* 200px (20 * 10px) */
+    border: 0.1rem solid #ddd; 
+    border-radius: 0.5rem; 
+    margin-top: 2rem; 
+    height: 60rem; 
 
 }

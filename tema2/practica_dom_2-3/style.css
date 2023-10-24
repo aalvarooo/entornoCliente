@@ -13,35 +13,52 @@ body {
     background-color: #f4f4f4;
 }
 
+
 #contenedor {
-    max-width: 70rem; /* 600px (60 * 10px) */
-    margin: 0 auto;
-    margin-top: 2rem;
-    padding: 2rem; /* 20px (2 * 10px) */
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 0.5rem; /* 5px (0.5 * 10px) */
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* 10px (1 * 10px) */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 2.4rem; /* 24px (2.4 * 10px) */
-    margin-bottom: 2rem; /* 20px (2 * 10px) */
-    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-/* Tu código CSS existente aquí */
-
-#contenedor_tareas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Cuatro columnas */
-    grid-gap: 2rem; /* 20px (2 * 10px) */
-    justify-items: center;
-}
-#contenedor_botones {
-   display: flex;
-   flex-wrap: row;
-   gap: 2rem;
+.lista_tareas {
+    list-style: none;
 }
 
- 
+.lista_tareas li {
+    margin: 5px 0;
+}
+
+.lista_botones {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
