@@ -1,43 +1,41 @@
 const listaTareas = document.getElementById("lista_tareas");
+const nuevaTareaInput = document.getElementById("nuevaTarea");
+const agregarTareaBtn = document.getElementById("agregarTarea");
+const eliminarTareaBtn = document.getElementById("eliminarTarea");
+const moverTareaArribaBtn = document.getElementById("moverTareaArriba");
 
-const lista_li = listaTareas.children;
+agregarTareaBtn.addEventListener("click", agregarTarea);
+eliminarTareaBtn.addEventListener("click", eliminarTarea);
+moverTareaArribaBtn.addEventListener("click", moverTareaArriba);
+listaTareas.addEventListener("click", selecionarTarea);
 
-for (let i = 0; i < lista_li.length; i++) {
-    lista_li[i].addEventListener(‘click’, function () {
-
-
-        lista_li[i].className = "resaltar";
-
-    });
-}
-
-function resaltarTarea() {
-
-
-}
-
-
-
-function agregarTarea() {
-    let textArea = document.getElementById("textarea").value;
-    const ultimo_li = listaTareas.lastChild;
-    const lista_nueva = document.createElement("li");
-    lista_nueva.textContent = textArea;
-    listaTareas.appendChild(lista_nueva);
-    textArea.textContent = "";
-}
-
-function eliminarTarea() {
-    let listaSelecionada = false;
-    for (let i = 0; i < lista_li.length; i++) {
-        if (lista_li[i].classList.contains('resaltado')) { // Hacer algo si la clase está presente } 
-            listaTareas.removeChild(lista_li[i]);
-        }
+function agregarTarea(){
+    const tareaTexto = nuevaTareaInput.value;
+    if(tareaTexto.trim() !== ""){
+        const nuevaTarea = document.createElement("li");
+        nuevaTarea.textContent = tareaTexto;
+        listaTareas.appendChild(nuevaTarea);
+        nuevaTareaInput.value = "";
     }
 }
-function moverTareaArriba() {
 
+function eliminarTarea(){
+    const tareaSeleccionada = listaTareas.querySelector(".resaltar");
+    if(tareaSeleccionada){
+        listaTareas.removeChild(tareaSeleccionada);
+    }
 }
 
-document.addEventListener("click", eliminarTarea);
-document.readyState
+function moverTareaArriba(){
+    const tareaSeleccionada = listaTareas.querySelector(".resaltar");
+    if(tareaSeleccionada && tareaSeleccionada.previousElementSibling){
+        listaTareas.insertBefore(tareaSeleccionada, tareaSeleccionada.previousElementSibling);
+    }
+}
+
+function selecionarTarea(event){
+    const tareaSeleccionada = event.target;
+    if(tareaSeleccionada.tagName === "LI"){
+        tareaSeleccionada.classList.toggle("resaltar");
+    }
+}

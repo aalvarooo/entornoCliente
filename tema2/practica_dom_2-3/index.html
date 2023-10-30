@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <div id="contenedor">
         <h1>Lista de tareas</h1>
         <ul id="lista_tareas">
@@ -17,15 +18,14 @@
             <li>Estudiar para el examen</li>
         </ul>
         <div class="lista_botones">
-            <textarea name="" id="textarea" cols="30" rows="10"></textarea>
-            <button onclick="agregarTarea()">Agregar Tarea</button>
-            <button onclick="eliminarTarea()">Eliminar Tarea</button>
-            <button>Mover tarea arriba</button>
+            <input type="text" id="nuevaTarea" placeholder="Nueva Tarea">
+            <button id="agregarTarea">Agregar Tarea</button>
+            <button id="eliminarTarea">Eliminar Tarea</button>
+            <button id="moverTareaArriba">Mover tarea arriba</button>
         </div>
-            
     </div>
+
     <script src="script.js"></script>
 
 </body>
-
 </html>

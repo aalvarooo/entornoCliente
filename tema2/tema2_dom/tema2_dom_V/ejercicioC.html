@@ -5,18 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .resaltado {
+            background: red;
+        }
+    </style>
 </head>
 
 <body>
     <div id="contenedor">
         <p>holaamigo</p>
         <span>que tal</span>
-        <span>bien</span>
         <p>estoygracias</p>
+
+        <span>bien</span>
     </div>
     <button onclick="resaltarSiguientes()">Resaltar siguientes</button>
     <button onclick="resaltarAnteriores()">Resaltar anteriores</button>
     <script>
+        function resaltarSiguientes() {
+            const primerParrafo = document.querySelector("#contenedor p");
+            const hermanoPosteriorPrimerParrafo = primerParrafo.nextElementSibling;
+
+            if (hermanoPosteriorPrimerParrafo && hermanoPosteriorPrimerParrafo.tagName === "SPAN") {
+                hermanoPosteriorPrimerParrafo.classList.add("resaltado");
+            }
+        }
+
+        function resaltarAnteriores(){
+            const segundoParrafo = document.querySelectorAll("#contenedor p")[1];
+            const hermanoAnteriorSegundoParrafo = segundoParrafo.previousElementSibling;
+
+            if(hermanoAnteriorSegundoParrafo && hermanoAnteriorSegundoParrafo.tagName === "SPAN"){
+                hermanoAnteriorSegundoParrafo.classList.add("resaltado");
+            }
+        }
     </script>
 </body>
 

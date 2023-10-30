@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio C</title>
+</head>
+
+<body>
+    <ul id="container">
+        <li class="lista" id="Elemento1">Elemento 1</li>
+        <li class="lista" id="Elemento2">Elemento 2</li>
+        <li class="lista" id="ElementoEspecial">Elemento Especial</li>
+        <li class="lista" id="Elemento4">Elemento 4</li>
+    </ul>
+    <p id="mensaje"></p>
+
+    <script>
+        const contenedor = document.getElementById("container");
+        const mensaje = document.getElementById("mensaje");
+
+        contenedor.addEventListener("click", function (event) {
+            const elementoClickeado = event.target;
+            if (elementoClickeado.tagName === "LI") {
+                const mensajeNormal = `Hiciste clic en el elemento: ${elementoClickeado.id}`;
+                const mensajeEspecial = "Hiciste clic en el elemento especial.";
+                mensaje.textContent = mensajeNormal;
+                if (elementoClickeado.id === "ElementoEspecial") {
+                    mensaje.textContent = mensajeEspecial;
+                    event.stopPropagation(); // Evitar que el evento se propague hacia arriba
+                }
+                if (elementoClickeado.id !== "ElementoEspecial") {
+                    alert("Hiciste clic en la lista");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

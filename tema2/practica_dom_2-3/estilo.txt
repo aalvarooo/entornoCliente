@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="contenedor">
+        <h1>Lista de tareas</h1>
+        <ul id="lista_tareas">
+            <li>Hacer la compra</li>
+            <li>Completar la tarea 1</li>
+            <li>Estudiar para el examen</li>
+        </ul>
+        <div class="lista_botones">
+            <input type="text" id="nuevaTarea" placeholder="Nueva Tarea">
+            <button id="agregarTarea">Agregar Tarea</button>
+            <button id="eliminarTarea">Eliminar Tarea</button>
+            <button id="moverTareaArriba">Mover tarea arriba</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+const listaTareas = document.getElementById("lista_tareas");
+const nuevaTareaInput = document.getElementById("nuevaTarea");
+const agregarTareaBtn = document.getElementById("agregarTarea");
+const eliminarTareaBtn = document.getElementById("eliminarTarea");
+const moverTareaArribaBtn = document.getElementById("moverTareaArriba");
+
+agregarTareaBtn.addEventListener("click", agregarTarea);
+eliminarTareaBtn.addEventListener("click", eliminarTarea);
+moverTareaArribaBtn.addEventListener("click", moverTareaArriba);
+listaTareas.addEventListener("click", selecionarTarea);
+
+function agregarTarea(){
+    const tareaTexto = nuevaTareaInput.value;
+    if(tareaTexto.trim() !== ""){
+        const nuevaTarea = document.createElement("li");
+        nuevaTarea.textContent = tareaTexto;
+        listaTareas.appendChild(nuevaTarea);
+        nuevaTareaInput.value = "";
+    }
+}
+
+function eliminarTarea(){
+    const tareaSeleccionada = listaTareas.querySelector(".resaltar");
+    if(tareaSeleccionada){
+        listaTareas.removeChild(tareaSeleccionada);
+    }
+}
+
+function moverTareaArriba(){
+    const tareaSeleccionada = listaTareas.querySelector(".resaltar");
+    if(tareaSeleccionada && tareaSeleccionada.previousElementSibling){
+        listaTareas.insertBefore(tareaSeleccionada, tareaSeleccionada.previousElementSibling);
+    }
+}
+
+function selecionarTarea(event){
+    const tareaSeleccionada = event.target;
+    if(tareaSeleccionada.tagName === "LI"){
+        tareaSeleccionada.classList.toggle("resaltar");
+    }
+}
+
+/* Declaraciones de reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%; /* 62.5% del tamaño de fuente raíz (equivalente a 10px) */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+
+#contenedor {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#lista_tareas {
+    list-style: none;
+}
+
+#lista_tareas li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+#lista_botones {
+    margin-top: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 5px 20px;
+    margin: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.resaltar {
+    background: red;
+}
