@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>Pulse una tecla</p>
+    </div>
+    <script>
+        const contenedor = document.getElementById("contenedor");
+
+        // function obtenerTeclas(event) {
+        //     const codigoTecla = document.createElement("p");
+        //     const teclaPulsada = document.createElement("p");
+
+        //     codigoTecla.textContent = `Código de la tecla: ${event.keyCode}`;
+        //     teclaPulsada.textContent = ` tecla pulsada: ${event.key}`;
+
+        //     contenedor.appendChild(codigoTecla);
+        //     contendor.appendChild(teclaPulsada);
+        // }
+
+        window.addEventListener('keydown', function(event){
+
+            const codigoTecla = document.createElement("p");
+            const teclaPulsada = document.createElement("p");
+
+            codigoTecla.textContent = `Código de la tecla: ${event.keyCode}`;
+            teclaPulsada.textContent = ` tecla pulsada: ${event.key}`;
+
+            contenedor.appendChild(codigoTecla);
+            contenedor.appendChild(teclaPulsada);
+        });
+    </script>
+</body>
+
+</html>
