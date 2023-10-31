@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 600px;
+            height: 300px;
+            background: hwb(38 1% 14%);
+            padding: 6px;
+        }
+
+        #cursorCoordinates {
+            padding: 40px;
+        }
+
+        #myButton {
+            margin-bottom: 5px;
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <p id="cursorCoordinates">Esto es un div compuesto de varios componentes. Puedes realizar ciertos cambios en el
+            cual me gustaría que hicieses cambios</p>
+        <button id="myButton">Pulsa el botón</button>
+    </div>
+    <p id="parrafoNumAleatorio"></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const parrafoNumAleatorio = document.getElementById("parrafoNumAleatorio");
+            const container = document.getElementById("container");
+            const myButton = document.getElementById("myButton");
+            let isEventListenerActive = true;
+
+            function obtenerAleatorio() {
+                const numAleatorio = Math.random();
+                console.log(numAleatorio);
+                parrafoNumAleatorio.textContent = numAleatorio;
+
+            }
+
+            myButton.addEventListener("click", function () {
+                container.removeEventListener("mousemove", obtenerAleatorio);
+            });
+            container.addEventListener("mousemove", obtenerAleatorio);
+        });
+    </script>
+</body>
+
+</html>

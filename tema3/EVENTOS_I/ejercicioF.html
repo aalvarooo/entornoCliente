@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #contenedorAzul{
-            background: blue;
-            width: 380px;
-            height: 300px;
-            margin: 9px;
-        }
-
-        #button{
-            
-        }
-    </style>
+    <title>Ejercicio F</title>
 </head>
+
 <body>
-    <div id="contenedor">
-
-        <div id="contenedorAzul">
-
+    <div id="container" style="background-color: white; width: 700px; height: 700px; ">
+        <div id="blueBox" style="background-color: blue; width: 200px; height: 200px; margin: 6px; padding: 10px;">
         </div>
+        <button id="myButton" style="padding: 10px; margin: 6px;" >Pulsa el botón</button>
 
-        <button id="button">Haz click
-        </button>
     </div>
+
+    <script>
+        const container = document.getElementById("container");
+        const blueBox = document.getElementById("blueBox");
+        const myButton = document.getElementById("myButton");
+
+        myButton.addEventListener("click", function () {
+            alert("Botón pulsado");
+            event.stopPropagation(); 
+        });
+
+        blueBox.addEventListener("click", function () {
+            alert("Caja azul pulsada");
+            event.stopPropagation(); 
+
+        });
+
+        container.addEventListener("click", function () {
+            if (event.target !== myButton) {
+                alert("Caja blanca pulsada");
+            }
+        });
+    </script>
 </body>
+
 </html>
