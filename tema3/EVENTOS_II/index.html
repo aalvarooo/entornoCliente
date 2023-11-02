@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding: 50px;
+        }
+
+        input {
+            margin: 5px;
+        }
+
+        .fondoAzul {
+            background: rgb(173, 191, 234);
+        }
+    </style>
+</head>
+
+<body>
+    <form id="container">
+
+        <input type="text" id="input">Añade tu nombre
+        <br>
+        <input type="password" id="input">Añade la contraseña
+        <br>
+        <button id="myButton" type="submit">Aceptas el formulario</button>
+        <div>
+            <p id="parrafoTecla"></p>
+            <p id="parrafoMayusculas"></p>
+        </div>
+    </form>
+    <div>
+        <p id="parrafoTecla"></p>
+        <p id="parrafoMayusculas"></p>
+    </div>
+
+    <h1>Este formulario es utilizando los eventos de tipo submit</h1>
+
+    <form id="miFormulario">
+
+        <input type="text" id="input">Añade tu nombre
+        <br>
+        <input type="password" id="input_formulario">Añade la contraseña
+
+        <br>
+        <input type="checkbox" id="checkboxMayorEdad"> Click si solo tienes más de 18 años
+        <br>
+        <input id="miImagen" type="image" alt="Mi imagen">
+        <br>
+        <button id="myButton" type="submit">Aceptas el formulario</button>
+
+    </form>
+
+    <h1>Este formulario es utilizando los eventos de interacción con el usuario</h1>
+
+    <form id="focus">
+
+
+        <input id="checkBoxFocus" type="checkbox" alt="Mi imagen">
+        <br>
+        <button id="checkBoxBoton" type="submit">click si te quieres subscribir</button>
+
+    </form>
+
+    <div id="miDiv">Haz clic derecho aquí</div>
+
+
+    <script>
+        //1. Eventos de Ratón:
+
+        const miButton = document.getElementById("myButton");
+        const container = document.getElementById("container");
+        const input = document.getElementById("input");
+        const parrafoTecla = document.getElementById("parrafoTecla");
+        const parrafoMayusculas = document.getElementById("parrafoMayusculas");
+
+        let clickCount = 0;
+
+        miButton.addEventListener("click", () => {
+            clickCount++;
+            miButton.innerHTML = `Has hecho clic ${clickCount} veces`;
+        });
+        container.addEventListener("mouseover", () => {
+            document.body.style.backgroundColor = "lightblue";
+        });
+        container.addEventListener("mouseout", () => {
+            document.body.style.backgroundColor = "white";
+        });
+
+
+        miButton.addEventListener("mousedown", () => {
+            miButton.innerHTML = "Estás presionando el botón";
+        });
+        miButton.addEventListener("mouseup", () => {
+            miButton.innerHTML = "Haz clic y mantén presionado";
+        });
+
+
+
+        //2. Eventos de Teclado:
+
+
+        document.addEventListener("keydown", (event) => {
+            // Verificar si la tecla presionada es la tecla "Enter" (código 13)
+            parrafoTecla.textContent = `Has pulsado la tecla con el código ${event.keyCode}`;
+        });
+
+        document.addEventListener("keyup", (event) => {
+            // Verificar si la tecla soltada es la tecla "Espacio" (código 32)
+            if (event.keyCode == 20) {
+                parrafoMayusculas.textContent = `Cuidado está pulsado la tecla en mayúsculas`;
+            }
+        });
+
+        const formulario = document.getElementById("miFormulario");
+        let clickAsegurado = false;
+
+        formulario.addEventListener("submit", (event) => {
+            if (!clickAsegurado) {
+                event.preventDefault(); // Evita el envío del formulario alert("Formulario enviado // Puedes realizar aquí validaciones antes de enviar el formulario
+                alert("antes de dar de neuvo al botón formulario asegurate de que has añadido el ombre correcto");
+                clickAsegurado = true;
+            }
+        });
+
+        const input_formulario = document.getElementById("input_formulario");
+
+
+        input_formulario.addEventListener("change", (event) => {
+            event.preventDefault(); // Evita el envío del formulario alert("Formulario enviado // Puedes realizar aquí validaciones antes de enviar el formulario
+            alert("Has añadido información al input");
+        });
+
+
+        const checkboxMayorEdad = document.getElementById("checkboxMayorEdad");
+
+        checkboxMayorEdad.addEventListener("input", (event) => {
+            event.preventDefault();
+            if (!clickAsegurado) {
+
+                alert("Cuidado solo si tienes 18 años");
+                clickAsegurado = true;
+
+            }
+        });
+
+       
+        // 4. Eventos de Carga:
+
+        const miImagen = document.getElementById("miImagen");
+        miImagen.addEventListener("load", () => {
+            if (miImagen.src !== ".jpg") {
+                alert("por favor sube la pa´gina en formato jpg")
+            }
+        });
+
+
+        //5. Funciones de Temporización:
+
+        let intervaloID;
+        let colorFondoIndex = 0;
+
+        formulario.addEventListener("submit", (event) => {
+            event.preventDefault(); // Evitar el envío del formulario
+
+            intervaloID = setInterval(() => {
+                const backgroundColors = ["blue", "green", "yellow"];
+                formulario.style.backgroundColor = backgroundColors[colorFondoIndex];
+                colorFondoIndex++;
+                if (colorFondoIndex === 3) {
+                    colorFondoIndex = 0;
+                }
+            }, 1000);
+        });
+
+        setTimeout(() => {
+            clearInterval(intervaloID);
+        }, 10000);
+
+        //6. Eventos de Interacción de Usuario:
+        const checkBoxFocus = document.getElementById("checkBoxFocus");
+
+        checkBoxFocus.addEventListener("focus", () => {
+            checkBoxBoton.style.backgroundColor = "lightblue";
+        });
+        checkBoxFocus.addEventListener("blur", () => {
+            checkBoxBoton.style.backgroundColor = "red";
+        });
+
+
+        const div = document.getElementById("miDiv");
+        div.addEventListener("contextmenu", (event) => {
+            event.preventDefault(); // Evita que aparezca el menú contextual predeterminado
+            alert("Has hecho clic derecho en el div.");
+        });
+    </script
+    </script>
+</body>
+
+</html>

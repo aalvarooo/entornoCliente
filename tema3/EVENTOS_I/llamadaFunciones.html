@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Llamar a funciones desde eventos</title>
+</head>
+
+<body>
+    <button id="miBoton">Haz clic</button>
+    <script src="script.js">
+        function miFuncion(mensaje) {
+            alert(mensaje);
+        }
+
+        var boton = document.getElementById("miBoton");
+
+        boton.addEventListener("click", function () {
+            var mensaje = "¡Se hizo clic en el botón!";
+            miFuncion(mensaje);
+        });
+    </script>
+</body>
+
+</html>
