@@ -76,3 +76,11 @@ header {
 .grid:hover {
     background-color: var(--accent-color);
 }
+
+.hundido {
+    background-color: red;
+}
+
+.agua {
+    background-color: #2584ff;
+}
