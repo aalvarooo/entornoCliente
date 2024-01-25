@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <form id="userForm">
+            <label for="fname">Nombre</label>
+            <input type="text" id="fname" name="firstname" placeholder="Tu nombre" class="input">
+
+            <label for="lname">Apellido</label>
+            <input type="text" id="lname" name="lastname" placeholder="Tu apellido" class="input">
+
+            <label for="country">Ciclo Formativo</label>
+            <select id="country" name="country" class="input">
+                <option value="daw">Daw</option>
+                <option value="dwec">DWEC</option>
+            </select>
+
+            <label for="curso">Curso</label>
+            <input type="text" id="curso" name="curso" placeholder="Tu curso" class="input">
+
+            <input type="button" value="Submit" onclick="submitForm()" class="submit">
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+/* variables personalizadas */
+:root {
+    --color-fondo: #191970;
+    --color-tablero: #4682B4;
+    --color-celda-agua: #1E90FF;
+    --color-celda-hundido: #8B0000;
+    --color-boton: #FF4500;
+    --color-letra-titulo: #FFF;
+    --color-letra-cuerpo: #C0C0C0;
+}
+
+body {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    color: var(--color-letra-cuerpo);
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: var(--color-fondo);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('img/fondo5.jpg');
+    background-size: cover;
+    background-color: var(--color-fondo);
+}
+
+.contenedor {
+    background-color: var(--color-tablero);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+header {
+    background-color: var(--color-fondo);
+    color: var(--color-letra-titulo);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.tablero-juego {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 4px;
+    padding: 20px;
+    background-color: var(--color-tablero);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.celda {
+    background-color: #ADD8E6;
+    border: 1px solid #B0C4DE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    height: 30px;
+    padding: 0;
+}
+
+.celda:hover {
+    background-color: var(--color-celda-agua);
+}
+
+.hundido {
+    background-color: var(--color-celda-hundido);
+}
+
+.agua {
+    background-color: var(--color-celda-agua);
+}
+
+
+
+/* Game Over */
+.juego-terminado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: opacity 0.5s;
+}
+
+.mensaje-fin-juego {
+    color: var(--color-letra-titulo);
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+    /* Animación de rebote */
+}
+
+.imagen-fin-juego {
+    max-width: 80%;
+    animation: pulse 2s infinite;
+    /* Animación de pulso */
+}
+
+/* reinicio boton */
+.boton-reinicio {
+    background-color: var(--color-boton);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    outline: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.boton-reinicio:hover {
+    background-color: #FF6347;
+}
+
+/* Estilos de las vidas */
+.vidas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.vida-item {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 69, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 69, 0, 0);
+    }
+}

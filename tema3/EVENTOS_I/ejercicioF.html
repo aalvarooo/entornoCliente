@@ -11,7 +11,7 @@
     <div id="container" style="background-color: white; width: 700px; height: 700px; ">
         <div id="blueBox" style="background-color: blue; width: 200px; height: 200px; margin: 6px; padding: 10px;">
         </div>
-        <button id="myButton" style="padding: 10px; margin: 6px;" >Pulsa el botón</button>
+        <button id="myButton" style="padding: 10px; margin: 6px;">Pulsa el botón</button>
 
     </div>
 
@@ -22,12 +22,12 @@
 
         myButton.addEventListener("click", function () {
             alert("Botón pulsado");
-            event.stopPropagation(); 
+            event.stopPropagation();
         });
 
         blueBox.addEventListener("click", function () {
             alert("Caja azul pulsada");
-            event.stopPropagation(); 
+            event.stopPropagation();
 
         });
 
